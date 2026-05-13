@@ -1,4 +1,4 @@
-# CI/CD Pipeline with Github Actions and Docker to deploy a Spring Boot REST API
+## CI/CD Pipeline with Github Actions and Docker to deploy a Spring Boot REST API
 
 This is a sample project for creating a CI/CD pipeline with Github Actions and Docker to deploy a Spring Boot REST API.
 
