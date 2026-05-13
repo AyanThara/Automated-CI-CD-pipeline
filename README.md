@@ -107,3 +107,4 @@ To securely store your Docker Hub credentials, you'll need to create Github secr
 
 DOCKER_HUB_USERNAME: Your Docker Hub username
 DOCKER_HUB_ACCESS_TOKEN: Your Docker Hub access token
+CI/CD Project
