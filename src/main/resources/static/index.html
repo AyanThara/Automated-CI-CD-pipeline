@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Control Panel</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fa-solid fa-code-branch fa-lg me-2 text-primary"></i>
+                <span class="brand-text">OpsCenter</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars text-light"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard"><i class="fa-solid fa-gauge me-1"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#api-console"><i class="fa-solid fa-terminal me-1"></i> API Console</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container position-relative z-1">
+            <div class="glow-orb orb-1"></div>
+            <div class="glow-orb orb-2"></div>
+            <h1 class="display-4 fw-bold text-gradient mb-3">Deployment Successful</h1>
+            <p class="lead text-muted mb-4">Monitor your Spring Boot APIs and CI/CD pipelines in real-time.</p>
+        </div>
+    </section>
+
+    <!-- Dashboard Container -->
+    <div class="container main-container mb-5" id="dashboard">
+        <div class="row g-4">
+            
+            <!-- Docker Integration Card -->
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-header border-0 bg-transparent pb-0">
+                        <div class="icon-box text-info bg-info-subtle mb-3">
+                            <i class="fa-brands fa-docker fa-2x"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Docker Ready</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary small mb-3">Application is containerized and ready for deployment across any environment.</p>
+                        <div class="status-indicator">
+                            <span class="pulse-dot bg-success"></span>
+                            <span class="small fw-medium text-success">Container Running</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Actions Card -->
+            <div class="col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-header border-0 bg-transparent pb-0">
+                        <div class="icon-box text-light bg-secondary-subtle mb-3">
+                            <i class="fa-brands fa-github fa-2x"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">CI/CD Pipeline</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary small mb-3">Automated builds and tests configured via GitHub Actions workflows.</p>
+                        <div class="status-indicator">
+                            <span class="pulse-dot bg-success"></span>
+                            <span class="small fw-medium text-success">Last Build: Passing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spring Boot Status Card -->
+            <div class="col-md-12 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-header border-0 bg-transparent pb-0">
+                        <div class="icon-box text-success bg-success-subtle mb-3">
+                            <i class="fa-solid fa-leaf fa-2x"></i>
+                        </div>
+                        <h4 class="card-title fw-bold">Spring Boot Core</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-secondary small mb-3">REST APIs are active and listening for incoming HTTP requests.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="badge bg-dark border border-secondary text-light px-3 py-2">v3.x</span>
+                            <div class="status-indicator m-0">
+                                <span class="pulse-dot bg-success"></span>
+                                <span class="small fw-medium text-success">Healthy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- API Testing Section -->
+        <div class="row mt-5" id="api-console">
+            <div class="col-12">
+                <h3 class="fw-bold mb-4"><i class="fa-solid fa-network-wired text-primary me-2"></i>API Playground</h3>
+            </div>
+            
+            <!-- Controls -->
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="glass-card h-100 p-4">
+                    <h5 class="mb-4 text-light">Endpoints</h5>
+                    <div class="d-grid gap-3">
+                        <button class="btn btn-api method-get text-start" onclick="testApi('GET', '/hello')">
+                            <span class="badge bg-primary me-2">GET</span> /hello
+                        </button>
+                        <button class="btn btn-api method-get text-start" onclick="testApi('GET', '/customers')">
+                            <span class="badge bg-primary me-2">GET</span> /customers
+                        </button>
+                        <button class="btn btn-api method-get text-start" onclick="testApi('GET', '/customers/123')">
+                            <span class="badge bg-primary me-2">GET</span> /customers/{id}
+                        </button>
+                        <button class="btn btn-api method-post text-start" onclick="testApi('POST', '/customers')">
+                            <span class="badge bg-success me-2">POST</span> /customers
+                        </button>
+                        <button class="btn btn-api method-put text-start" onclick="testApi('PUT', '/customers')">
+                            <span class="badge bg-warning text-dark me-2">PUT</span> /customers
+                        </button>
+                        <button class="btn btn-api method-delete text-start" onclick="testApi('DELETE', '/customers')">
+                            <span class="badge bg-danger me-2">DEL</span> /customers
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Console Output -->
+            <div class="col-lg-8">
+                <div class="terminal-window h-100">
+                    <div class="terminal-header d-flex align-items-center px-3 py-2">
+                        <div class="window-controls">
+                            <span class="control-btn close-btn"></span>
+                            <span class="control-btn min-btn"></span>
+                            <span class="control-btn max-btn"></span>
+                        </div>
+                        <div class="terminal-title mx-auto small text-muted font-monospace">Terminal - Response</div>
+                        <button class="btn btn-sm btn-link text-muted p-0 text-decoration-none" onclick="clearConsole()"><i class="fa-solid fa-eraser"></i> Clear</button>
+                    </div>
+                    <div class="terminal-body p-4 font-monospace" id="console-output">
+                        <div class="text-secondary mb-2">> System initialized. Waiting for requests...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
